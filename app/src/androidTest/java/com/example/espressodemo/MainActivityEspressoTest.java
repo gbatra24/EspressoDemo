@@ -9,6 +9,7 @@ import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.espresso.Espresso;
@@ -30,6 +31,8 @@ public class MainActivityEspressoTest {
         onView(withId(R.id.etName)).perform(clearText(), typeText("Gagan"));
         Espresso.closeSoftKeyboard();
         onView(withId(R.id.button2)).perform(click());
+        onView(withText("Gagan")).inRoot(new CustomToastMatcher())
+                .check(matches(isDisplayed()));
 
 //        onView(withId(R.id.ll_main)).check(matches(isDisplayed()));
 

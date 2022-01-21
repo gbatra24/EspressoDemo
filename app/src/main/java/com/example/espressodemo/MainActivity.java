@@ -24,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
                 .add(R.id.frag_container, FragmentOne.class, null)
                 .commit();
 
+        findViewById(R.id.button2).setOnClickListener(v -> {
+            Intent intent = new Intent(this, RecyclerViewActivity.class);
+            startActivityForResult(intent, 10);
+        });
+
     }
 
     @Override

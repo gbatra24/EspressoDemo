@@ -64,7 +64,7 @@ public class FragmentTwo extends Fragment {
         Button button = view.findViewById(R.id.btn_frag2);
         button.setOnClickListener(v -> {
             getActivity().getSupportFragmentManager().beginTransaction()
-                    .remove(this)
+                    .replace(R.id.frag_container, FragmentOne.class, null)
                     .commit();
         });
         return view;
